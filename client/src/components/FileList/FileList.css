@@ -1,0 +1,21 @@
+.fileList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .fileItem {
+    padding: 10px 15px;
+    margin: 5px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .fileItem.selected {
+    background-color: #e0f7fa; /* A light teal color to indicate selection */
+    border-color: #4dd0e1; /* A darker teal border for selected item */
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,22 @@
+.home {
+  display: flex;
+}
+
+.homeMain {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #ecf0f1;
+  min-height: 100vh;
+  overflow: auto;
+  margin-left: 250px; /* Margin to match the sidebar's width */
+  transition: margin-left 0.3s ease; /* Smooth transition for the margin change */
+}
+
+.homeMain.sidebar-open {
+  margin-left: 250px;
+}
+  
+.homeMain.sidebar-closed {
+  margin-left: 50px;
+}
+    

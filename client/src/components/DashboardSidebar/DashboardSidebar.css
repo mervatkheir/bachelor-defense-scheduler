@@ -1,0 +1,66 @@
+/* Styles for the sidebar when it is open */
+.dashboardSidebar {
+  background-color: #2C3E50; /* Dark blue background */
+  color: white;
+  width: 250px; /* Width of the sidebar when it's open */
+  min-height: 100vh; /* Full height */
+  transition: width 0.3s; /* Smooth transition for the sidebar */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  position: fixed; /* Fixed positioning to overlay content */
+  z-index: 1000; /* Ensures it's above other content */
+}
+
+/* Styles for the sidebar when it is closed */
+.dashboardSidebar.closed {
+  width: 50px; /* Collapse the width to hide the sidebar */
+  transition: width 0.3s; /* Smooth transition for the sidebar */
+}
+
+/* List item styles */
+.dashboardSidebar .MuiListItem-button {
+  color: white; /* Text color */
+}
+
+.dashboardSidebar .MuiListItemIcon-root {
+  color: white; /* Icon color */
+}
+
+.dashboardSidebar .MuiListItem-button:hover {
+  background-color: #34495E; /* Lighter blue for hover state */
+}
+
+/* Style for the menu button */
+.menuButton {
+  display: block; /* Show the menu button */
+  position: fixed; /* Fixed position to stay in place when scrolling */
+  top: 0; /* Align to the top of the viewport */
+  left: 0; /* Align to the left of the viewport */
+  z-index: 1200; /* Above the sidebar to be accessible */
+  background-color: #2C3E50; /* Match the sidebar color */
+  width: 100%; /* Full width to match sidebar */
+  color: white; /* Icon color */
+}
+
+
+/* Show the menu button on smaller screens */
+@media screen and (max-width: 768px) {
+  .menuButton {
+    display: block; /* Show the menu button */
+    margin-left: 20px; /* Space from the left edge */
+  }
+
+  /* When the sidebar is closed, only show the hamburger menu icon */
+  .dashboardSidebar.closed {
+    width: 0; /* Fully collapse the sidebar */
+    min-height: 50px; /* Minimum height to show the menu icon */
+  }
+
+  /* Adjust the main content when the sidebar is open/closed */
+  .homeMain {
+    transition: margin-left 0.3s; /* Smooth transition for the main content */
+  }
+
+  .homeMain.shifted {
+    margin-left: 250px; /* Shift the main content to the right when the sidebar is open */
+  }
+}
