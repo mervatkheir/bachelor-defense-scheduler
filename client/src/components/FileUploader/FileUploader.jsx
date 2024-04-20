@@ -13,7 +13,6 @@ function FileUploader({ onFileSelect }) {
         showErrorToast("No file selected or file type is not supported");
         return;
       }
-      // Assuming you're only interested in the first file for simplicity
       const file = acceptedFiles[0];
       if (file.type !== "text/csv") {
         showErrorToast("Please upload a valid CSV file");
@@ -29,7 +28,7 @@ function FileUploader({ onFileSelect }) {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: ".csv",
-    multiple: false, // Set this to true if you wish to accept multiple files
+    multiple: false,
   });
 
   const deleteFile = (fileName) => {
@@ -37,11 +36,8 @@ function FileUploader({ onFileSelect }) {
     showErrorToast("File removed");
   };
 
-  // Function to handle the file upload logic
   const uploadFiles = () => {
-    // You would upload the files here and provide feedback with toasts
     showSuccessToast("File(s) uploaded successfully");
-    // If there was an error, you would use showErrorToast
   };
 
   return (

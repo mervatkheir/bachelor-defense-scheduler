@@ -8,8 +8,8 @@
   }
   
   .dropzone.active {
-    border-color: #4dd0e1; /* Teal border color, or any color you'd like */
-    background-color: #e0f7fa; /* Light teal background color */
+    border-color: #4dd0e1;
+    background-color: #e0f7fa;
   }
   
 
@@ -17,27 +17,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* ...other styles... */
   }
   
   .delete-icon {
     cursor: pointer;
-    color: #ff1744; /* Red color for the delete icon */
+    color: #ff1744; 
   }
   
   .upload-button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50; /* A nicer green */
+    background-color: #4CAF50; 
     color: white;
     font-size: 1rem;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add some shadow for depth */
-    transition: background-color 0.3s ease; /* Transition for a hover effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
   }
   
   .upload-button:hover {
-    background-color: #388e3c; /* Darker green on hover */
+    background-color: #388e3c; 
   }
   

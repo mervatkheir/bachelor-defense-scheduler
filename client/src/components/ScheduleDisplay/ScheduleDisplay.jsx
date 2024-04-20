@@ -1,8 +1,7 @@
 import React from "react";
-import "./ScheduleDisplay.css"; // CSS for styling the schedule display
+import "./ScheduleDisplay.css";
 
 function ScheduleDisplay() {
-  // Placeholder content - you will replace this with your schedule logic and display
   return (
     <div className="scheduleDisplay">
       <h2>Schedule Display</h2>

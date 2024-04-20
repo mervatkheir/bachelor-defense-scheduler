@@ -1,12 +1,12 @@
 .uploadCSV {
     padding: 20px;
-    background-color: #f9f9f9; /* Light gray background */
+    background-color: #f9f9f9; 
     width: 100%;
-    max-width: 1000px; /* Adjust the width as needed */
+    max-width: 1000px; 
     margin: auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: add shadow for depth */
-    border-radius: 5px; /* Optional: round the corners */
-    min-height: 80vh; /* Ensure the content takes up the full height */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 5px; 
+    min-height: 80vh; 
   }
   
   .uploadCSV h1, .uploadCSV h2 {
