@@ -27,7 +27,7 @@ function DashboardSidebar({ isOpen, setIsOpen }) {
         </IconButton>
         <List>
           {/* Dashboard Home */}
-          <ListItemButton LinkComponent={Link}>
+          <ListItemButton LinkComponent={Link} to="/">
             <ListItemIcon>
               <DashboardIcon style={{ color: "white" }} />
             </ListItemIcon>

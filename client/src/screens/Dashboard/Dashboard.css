@@ -1,0 +1,79 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .upcoming-defenses, .quick-statistics {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  
+  .defense-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .defense-item:last-child {
+    border-bottom: none;
+  }
+  
+  .icon {
+    color: #4CAF50;
+    margin-right: 5px;
+    align-self: flex-start;
+  }
+  
+  .stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .text-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+.slide {
+  padding: 30px; 
+  box-sizing: border-box;
+}
+
+.slick-arrow {
+  z-index: 1;
+}
+
+.slick-prev {
+  left: 10px; 
+  z-index: 1;
+}
+
+.slick-next {
+  right: 10px;
+  z-index: 1;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 30px; 
+  color: #333; 
+}
+
+@media (max-width: 600px) {
+  .slick-prev {
+    left: -25px;
+  }
+
+  .slick-next {
+    right: -25px;
+  }
+}
+

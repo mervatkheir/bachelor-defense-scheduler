@@ -5,6 +5,7 @@ import FilterControls from "../../components/FilterControls/FilterControls";
 import DashboardSidebar from "../../components/DashboardSidebar/DashboardSidebar";
 import "./Home.css";
 import UploadCSV from "../UploadCSV/UploadCSV";
+import Dashboard from "../Dashboard/Dashboard";
 
 function Home(props) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -18,6 +19,7 @@ function Home(props) {
         }`}
       >
         <Routes>
+          <Route path="/" element={<Dashboard />} />
           <Route path="/upload" element={<UploadCSV />} />
           <Route path="/schedule" element={<ScheduleDisplay />} />
           <Route path="/filters" element={<FilterControls />} />
