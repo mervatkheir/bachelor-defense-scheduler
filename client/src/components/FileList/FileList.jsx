@@ -1,42 +1,32 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./FileList.css";
+import { selectFile } from "../../redux/fileManagementSlice";
 
-function FileList({ onSelect, onSchedule, selectedFile }) {
-  const files = ["file1.csv", "file2.csv", "file3.csv"];
+function FileList() {
+  const files = useSelector((state) => state.fileManagement.files);
+  const selectedFile = useSelector(
+    (state) => state.fileManagement.selectedFile
+  );
+  const dispatch = useDispatch();
+
+  const handleSelect = (file) => {
+    dispatch(selectFile(file));
+  };
 
   return (
     <div>
       <ul className="fileList">
-        {files.map((file, index) => (
+        {files?.map((file, index) => (
           <li
             key={index}
             className={`fileItem ${selectedFile === file ? "selected" : ""}`}
-            onClick={() => onSelect(file)}
+            onClick={() => handleSelect(file)}
           >
             {file}
           </li>
         ))}
       </ul>
-      <button
-        className="scheduleButton"
-        onClick={() => selectedFile && onSchedule(selectedFile)}
-        disabled={!selectedFile}
-        style={{
-          display: "block",
-          width: "30%",
-          padding: "10px",
-          marginTop: "10px",
-          backgroundColor: selectedFile ? "#4CAF50" : "#ccc",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: selectedFile ? "pointer" : "default",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        Schedule Selected File
-      </button>
     </div>
   );
 }
