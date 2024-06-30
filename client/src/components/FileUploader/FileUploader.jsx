@@ -2,27 +2,52 @@ import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import CancelIcon from "@mui/icons-material/Cancel";
 import "./FileUploader.css";
-import { showSuccessToast, showErrorToast } from "../Toast/ToastNotification"; // Assuming this is the correct path
+import { showSuccessToast, showErrorToast } from "../Toast/ToastNotification";
+import { useDispatch } from "react-redux";
+import { useMutation } from "@tanstack/react-query";
+import { uploadFile } from "../../api/schedule.js";
+import { setSchedule } from "../../redux/scheduleSlice.js";
+import { addFile } from "../../redux/fileManagementSlice.js";
 
 function FileUploader({ onFileSelect }) {
-  const [files, setFiles] = useState([]);
+  const [file, setFile] = useState(null);
+
+  const mutation = useMutation({
+    mutationFn: uploadFile,
+    onSuccess: (data) => {
+      dispatch(
+        setSchedule({
+          fileName: file.name,
+          data,
+        })
+      );
+      dispatch(addFile(file.name));
+      showSuccessToast("File uploaded successfully");
+      setFile(null);
+    },
+    onError: () => {
+      showErrorToast("Failed to upload file");
+    },
+  });
+
+  const dispatch = useDispatch();
 
   const onDrop = useCallback(
     (acceptedFiles) => {
-      if (acceptedFiles.length === 0) {
+      const newFile = acceptedFiles[0];
+      if (!newFile) {
         showErrorToast("No file selected or file type is not supported");
         return;
       }
-      const file = acceptedFiles[0];
-      if (file.type !== "text/csv") {
+      if (newFile.type !== "text/csv") {
         showErrorToast("Please upload a valid CSV file");
         return;
       }
-      setFiles([...files, file]);
+      setFile(newFile);
       showSuccessToast("File added successfully");
-      onFileSelect(file.name);
+      onFileSelect(newFile.name);
     },
-    [files, onFileSelect]
+    [onFileSelect]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -31,13 +56,17 @@ function FileUploader({ onFileSelect }) {
     multiple: false,
   });
 
-  const deleteFile = (fileName) => {
-    setFiles(files.filter((file) => file.name !== fileName));
+  const deleteFile = () => {
+    setFile(null);
     showErrorToast("File removed");
   };
 
   const uploadFiles = () => {
-    showSuccessToast("File(s) uploaded successfully");
+    if (file) {
+      mutation.mutate(file);
+    } else {
+      showErrorToast("No file to upload");
+    }
   };
 
   return (
@@ -53,15 +82,14 @@ function FileUploader({ onFileSelect }) {
         </p>
       </div>
       <ul className="file-list">
-        {files.map((file) => (
-          <li key={file.name} className="file-item">
-            {file.name} - {file.size} bytes
-            <CancelIcon
-              className="delete-icon"
-              onClick={() => deleteFile(file.name)}
-            />
-          </li>
-        ))}
+        {file && (
+          <ul className="file-list">
+            <li className="file-item">
+              {file.name} - {file.size} bytes
+              <CancelIcon className="delete-icon" onClick={deleteFile} />
+            </li>
+          </ul>
+        )}
       </ul>
       <button className="upload-button" onClick={uploadFiles}>
         Upload Files

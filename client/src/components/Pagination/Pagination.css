@@ -1,0 +1,33 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button, .pagination input {
+    border: 1px solid #ccc;
+    background-color: #4CAF50;
+    color: black;
+    padding: 8px 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .pagination input {
+    width: 50px; 
+    background-color: white;
+    text-align: center;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: default;
+  }
+  
+  .page-input:focus {
+    outline: none;
+    border: 2px solid #4CAF50; 
+  }
+  

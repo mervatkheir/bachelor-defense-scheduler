@@ -26,15 +26,13 @@ function DashboardSidebar({ isOpen, setIsOpen }) {
           <MenuIcon style={{ color: "white" }} />
         </IconButton>
         <List>
-          {/* Dashboard Home */}
-          <ListItemButton LinkComponent={Link}>
+          <ListItemButton LinkComponent={Link} to="/">
             <ListItemIcon>
               <DashboardIcon style={{ color: "white" }} />
             </ListItemIcon>
             <ListItemText primary="Dashboard" style={{ color: "white" }} />
           </ListItemButton>
 
-          {/* File Upload */}
           <ListItemButton LinkComponent={Link} to="/upload">
             <ListItemIcon>
               <UploadFileIcon style={{ color: "white" }} />
@@ -42,7 +40,6 @@ function DashboardSidebar({ isOpen, setIsOpen }) {
             <ListItemText primary="Upload CSV" style={{ color: "white" }} />
           </ListItemButton>
 
-          {/* Schedule Display */}
           <ListItemButton LinkComponent={Link} to="/schedule">
             <ListItemIcon>
               <ScheduleIcon style={{ color: "white" }} />
@@ -50,7 +47,6 @@ function DashboardSidebar({ isOpen, setIsOpen }) {
             <ListItemText primary="Schedule" style={{ color: "white" }} />
           </ListItemButton>
 
-          {/* Filters */}
           <ListItemButton LinkComponent={Link} to="/filters">
             <ListItemIcon>
               <FilterListIcon style={{ color: "white" }} />
